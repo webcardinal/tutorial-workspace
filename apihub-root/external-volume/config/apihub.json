@@ -1,0 +1,66 @@
+{
+  "storage": "../apihub-root",
+  "port": 8080,
+  "preventRateLimit": true,
+  "activeComponents": [
+    "virtualMQ",
+    "messaging",
+    "notifications",
+    "filesManager",
+    "bdns",
+    "bricksLedger",
+    "bricksFabric",
+    "bricking",
+    "anchoring",
+    "dsu-wizard",
+    "gtin-dsu-wizard",
+    "epi-mapping-engine",
+    "epi-mapping-engine-results",
+    "leaflet-web-api",
+    "acdc-reporting",
+    "debugLogger",
+    "mq",
+    "secrets",
+    "iframe",
+    "stream",
+    "staticServer"
+  ],
+  "componentsConfig": {
+    "staticServer": {
+      "excludedFiles": [
+        ".*.secret"
+      ]
+    },
+    "bricking": {},
+    "anchoring": {}
+  },
+  "responseHeaders": {
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-XSS-Protection": "1; mode=block"
+  },
+  "enableRequestLogger": true,
+  "enableJWTAuthorisation": false,
+  "enableOAuth": false,
+  "enableLocalhostAuthorization": false,
+  "serverAuthentication": false,
+  "skipJWTAuthorisation": [
+    "/assets",
+    "/helloworld-wallet",
+    "/resources",
+    "/bdns",
+    "/anchor/epi",
+    "/anchor/default",
+    "/anchor/vault",
+    "/bricking",
+    "/bricksFabric",
+    "/bricksledger",
+    "/create-channel",
+    "/forward-zeromq",
+    "/send-message",
+    "/receive-message",
+    "/files",
+    "/notifications",
+    "/mq"
+  ]
+
+}

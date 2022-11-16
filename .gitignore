@@ -1,0 +1,11 @@
+.idea
+privatesky
+node_modules
+package-lock.json
+env.json.devel
+dronewallet/*
+apihub-root/dronewallet/loader
+apihub-root/internal-volume/domains
+apihub-root/external-volume/domains
+apihub-root/external-volume/wallets
+apihub-root/bundles
