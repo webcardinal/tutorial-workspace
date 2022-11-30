@@ -1,5 +1,6 @@
 .idea
 privatesky
+opendsu-sdk
 node_modules
 package-lock.json
 env.json.devel

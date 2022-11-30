@@ -7,13 +7,13 @@
 The *tutorial-workspace*  bundle contains the following core components required for building and running a Self Sovereign Application:
 
 - Octopus task runner
-- PrivateSky local installation
+- Opendsu local installation
 - Web Server
 - SSApp application loader
 
 *Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [PrivateSky dedicated page](https://privatesky.xyz/?Tools/octopus) in the documentation.
 
-*PrivateSky* provides the *VirtualMQ* service and the javascript runtime bundles required for a SSApp to interact with EDFS and PrivateSky nodes
+*OpenDSU* provides the *VirtualMQ* service and the javascript runtime bundles required for a SSApp to interact with EDFS and OpenDSU nodes
 
 The web server is configured to serve static files from the web-server directory inside the *template-workspace* installation. Besides serving static files, the server exposes the Brick Storage API required to store data to EDFS.
 
