@@ -42,6 +42,10 @@
         },
         {
           "type": "execute",
+          "cmd": "npm run build-all"
+        },
+        {
+          "type": "execute",
           "cmd": "npm run bind-wallet demo-wallet demo-ssapp"
         },
         {
