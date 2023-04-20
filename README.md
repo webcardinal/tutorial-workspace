@@ -7,17 +7,13 @@
 The *tutorial-workspace*  bundle contains the following core components required for building and running a Self Sovereign Application:
 
 - Octopus task runner
-- Opendsu local installation
+- Opendsu sdk
 - Web Server
-- SSApp application loader
+- Minimal demo SSApp example
 
 *Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [OpenDSU dedicated page](https://opendsu.com/rfc095) in the documentation.
 
-*OpenDSU* provides the *VirtualMQ* service and the javascript runtime bundles required for a SSApp to interact with EDFS and OpenDSU nodes
-
 The web server is configured to serve static files from the web-server directory inside the *template-workspace* installation. Besides serving static files, the server exposes the Brick Storage API required to store data to EDFS.
-
-The wallet template installed by *template-workspace* is a plain customisable SSApp which once loaded will display a menu with all the SSApp applications contained in this ssapp-demo-workspace installation. Through this app you will be able to access your newly created SSApp.
 
 ### Installation
 
