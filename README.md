@@ -11,7 +11,7 @@ The *tutorial-workspace*  bundle contains the following core components required
 - Web Server
 - SSApp application loader
 
-*Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [PrivateSky dedicated page](https://privatesky.xyz/?Tools/octopus) in the documentation.
+*Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [OpenDSU dedicated page](https://opendsu.com/rfc095) in the documentation.
 
 *OpenDSU* provides the *VirtualMQ* service and the javascript runtime bundles required for a SSApp to interact with EDFS and OpenDSU nodes
 
@@ -23,7 +23,7 @@ The wallet template installed by *template-workspace* is a plain customisable SS
 
 The only commands you need to run in the *tutorial-workspace* workspace are:
 ```sh
-$ npm run dev-install
+$ npm install
 $ npm run server
 $ npm run build-all
 ```
@@ -32,4 +32,4 @@ It is a basic web application which allows creation and loading of wallets based
 
 ### Adding more ssapps
 
-PrivateSky.xyz has a dedicated document on [how to create a ssapp](https://privatesky.xyz/?Howto/a-ssapp) and that will give you a head start on how to create and add multiple ssapps into your workspace.
+OpenDSU.com has a dedicated document on [how to create a ssapp](https://opendsu.com/wallets/how-to/a-ssapp) and that will give you a head start on how to create and add multiple ssapps into your workspace.
