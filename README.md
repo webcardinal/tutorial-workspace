@@ -25,11 +25,11 @@ The only commands you need to run in the *tutorial-workspace* workspace are:
 ```sh
 $ npm install
 $ npm run server
+$ npm run install-demo
 $ npm run build-all
 ```
-The SSApp application loader is the first thing you will see after running the *tutorial-workspace* web server and accessing ```http://localhost:8080```. 
-It is a basic web application which allows creation and loading of wallets based on the menu wallet template. The SSApp loader registers a service worker responsible with loading the built SSApps from the Brick Storage.
+A simple and minimal SSApp application is the first thing you can checkout after running the above commands and accessing ```http://localhost:8080/demo-wallet/loader```. 
 
-### Adding more ssapps
+### Adding more SSApps
 
 OpenDSU.com has a dedicated document on [how to create a ssapp](https://opendsu.com/wallets/how-to/a-ssapp) and that will give you a head start on how to create and add multiple ssapps into your workspace.
