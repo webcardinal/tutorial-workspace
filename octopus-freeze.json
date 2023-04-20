@@ -32,6 +32,34 @@
       ]
     }
   ],
+  "install-demo": [
+    {
+      "name": "Installing demo...",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "npm run add demo-ssapp https://github.com/opendsu/ssapp-template"
+        },
+        {
+          "type": "execute",
+          "cmd": "npm run bind-wallet demo-wallet demo-ssapp"
+        },
+        {
+          "type": "execute",
+          "cmd": "npm run add-loader apihub-root/demo-wallet/loader https://github.com/OpenDSU/trust-loader"
+        },
+        {
+          "type": "copy",
+          "src": "./default-loader-config-files",
+          "target": "./apihub-root/demo-wallet/loader",
+          "options": {
+            "overwrite": true,
+            "ignoreErrors": true
+          }
+        }
+      ]
+    }
+  ],
   "patch": [
     {
       "name": "trust-loader-config",
@@ -80,7 +108,6 @@
       ]
     }
   ],
-
   "ssapps-and-wallets-build": [
     {
       "name": "webcardinal-wallet-build",
