@@ -117,6 +117,10 @@
                         "overwrite": true,
                         "ignoreErrors": true
                     }
+                },
+                {
+                    "type": "execute",
+                    "cmd": "npm run bind-wallet demo-wallet demo-ssapp"
                 }
             ]
         }
@@ -167,6 +171,10 @@
                 {
                     "type": "execute",
                     "cmd": "cd demiurge && npm run build"
+                },
+                {
+                    "type": "execute",
+                    "cmd": "npm run bind-wallet demiurge-wallet demiurge"
                 },
                 {
                     "type": "copySeed",
@@ -244,50 +252,6 @@
                 {
                     "type": "execute",
                     "cmd": "cd webcardinal && npm run build"
-                }
-            ]
-        },
-        {
-            "name": "demiurge-wallet-build",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd demiurge && npm run build",
-                    "options": {
-                        "overwrite": true,
-                        "ignoreErrors": true
-                    }
-                },
-                {
-                    "type": "copySeed",
-                    "src": "./demiurge/seed",
-                    "target": "./apihub-root/demiurge-wallet/wallet-patch/seed",
-                    "options": {
-                        "overwrite": true,
-                        "ignoreErrors": true
-                    }
-                }
-            ]
-        },
-        {
-            "name": "demo-wallet-build",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd demo-ssapp && npm run build",
-                    "options": {
-                        "overwrite": true,
-                        "ignoreErrors": true
-                    }
-                },
-                {
-                    "type": "copySeed",
-                    "src": "./demo-ssapp/seed",
-                    "target": "./apihub-root/demo-wallet/wallet-patch/seed",
-                    "options": {
-                        "overwrite": true,
-                        "ignoreErrors": true
-                    }
                 }
             ]
         },
