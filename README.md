@@ -10,10 +10,13 @@ The *tutorial-workspace*  bundle contains the following core components required
 - Opendsu sdk
 - Web Server
 - Minimal demo SSApp example
+- Demiurge Wallet
 
 *Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [OpenDSU dedicated page](https://opendsu.com/rfc095) in the documentation.
 
 The web server is configured to serve static files from the web-server directory inside the *template-workspace* installation. Besides serving static files, the server exposes the Brick Storage API required to store data to EDFS.
+
+Demiurge Wallet is a standard tool for sharind data (enclaves) and DID between groups in enterprise usecases.
 
 ## Prerequisites
 
