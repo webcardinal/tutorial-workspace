@@ -30,36 +30,6 @@
                     "cmd": "cd opendsu-sdk && npm install"
                 }
             ]
-        },
-        {
-            "name": "demo-ssapp",
-            "src": "https://github.com/opendsu/ssapp-template",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd demo-ssapp && npm install"
-                }
-            ]
-        },
-        {
-            "name": "apihub-root/demo-wallet/loader",
-            "src": "https://github.com/OpenDSU/trust-loader",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd apihub-root/demo-wallet/loader && npm install"
-                }
-            ]
         }
     ],
     "install-demo": [
@@ -270,42 +240,6 @@
                 {
                     "type": "execute",
                     "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postbuild\""
-                }
-            ]
-        },
-        {
-            "name": "demo-wallet_bind_to_demo-ssapp",
-            "src": "",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd demo-ssapp && npm run build"
-                },
-                {
-                    "type": "copy",
-                    "src": "./demo-ssapp/seed",
-                    "target": "./apihub-root/demo-wallet/wallet-patch/seed",
-                    "options": {
-                        "overwrite": true
-                    }
-                }
-            ]
-        },
-        {
-            "name": "demiurge-wallet_bind_to_demiurge",
-            "src": "",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd demiurge && npm run build"
-                },
-                {
-                    "type": "copy",
-                    "src": "./demiurge/seed",
-                    "target": "./apihub-root/demiurge-wallet/wallet-patch/seed",
-                    "options": {
-                        "overwrite": true
-                    }
                 }
             ]
         }
