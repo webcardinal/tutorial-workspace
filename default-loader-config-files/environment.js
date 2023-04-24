@@ -1,5 +1,5 @@
 export default{
-  "appName": "TODO demo SSApp",
+  "appName": "DemoSSApp",
   "vault": "server",
   "agent": "browser",
   "system":   "any",

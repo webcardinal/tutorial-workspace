@@ -1,152 +1,315 @@
 {
-  "workDir": ".",
-  "dependencies": [
-    {
-      "name": "webcardinal/bundle",
-      "src": "https://github.com/webcardinal/webcardinal-minimal-release",
-      "actions": [
+    "workDir": ".",
+    "dependencies": [
         {
-          "type": "smartClone",
-          "target": ".",
-          "collectLog": false
+            "name": "webcardinal/bundle",
+            "src": "https://github.com/webcardinal/webcardinal-minimal-release",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd webcardinal && npm install"
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "cd webcardinal && npm install"
-        }
-      ]
-    },
-    {
-      "name": "opendsu-sdk",
-      "src": "http://github.com/opendsu/opendsu-sdk.git",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": ".",
-          "collectLog": false
+            "name": "opendsu-sdk",
+            "src": "http://github.com/opendsu/opendsu-sdk.git",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd opendsu-sdk && npm install"
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "cd opendsu-sdk && npm install"
-        }
-      ]
-    }
-  ],
-  "install-demo": [
-    {
-      "name": "Installing demo...",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "npm run add demo-ssapp https://github.com/opendsu/ssapp-template"
+            "name": "demo-ssapp",
+            "src": "https://github.com/opendsu/ssapp-template",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd demo-ssapp && npm install"
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "npm run build-all"
+            "name": "apihub-root/demo-wallet/loader",
+            "src": "https://github.com/OpenDSU/trust-loader",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd apihub-root/demo-wallet/loader && npm install"
+                }
+            ]
+        }
+    ],
+    "install-demo": [
+        {
+            "name": "demo-ssapp",
+            "src": "https://github.com/opendsu/ssapp-template",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd demo-ssapp && npm install"
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "npm run bind-wallet demo-wallet demo-ssapp"
+            "name": "apihub-root/demo-wallet/loader",
+            "src": "https://github.com/OpenDSU/trust-loader",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd apihub-root/demo-wallet/loader && npm install"
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "npm run add-loader apihub-root/demo-wallet/loader https://github.com/OpenDSU/trust-loader"
+            "name": "Demo SSApp finishing touches...",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./default-loader-config-files",
+                    "target": "./apihub-root/demo-wallet/loader",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd demo-ssapp && npm run build"
+                },
+                {
+                    "type": "copy",
+                    "src": "./demo-ssapp/seed",
+                    "target": "./apihub-root/demo-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                }
+            ]
+        }
+    ],
+    "install-demiurge": [
+        {
+            "name": "demiurge",
+            "src": "https://github.com/opendsu/demiurge",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd demiurge && npm install"
+                }
+            ]
         },
         {
-          "type": "copy",
-          "src": "./default-loader-config-files",
-          "target": "./apihub-root/demo-wallet/loader",
-          "options": {
-            "overwrite": true,
-            "ignoreErrors": true
-          }
-        }
-      ]
-    }
-  ],
-  "patch": [
-    {
-      "name": "trust-loader-config",
-      "actions": [
-        {
-          "type": "copy",
-          "src": "./trust-loader-config",
-          "target": "./apihub-root",
-          "options": {
-            "overwrite": true,
-            "ignoreErrors": true
-          }
-        }
-      ]
-    }
-  ],
-  "postinstall": [
-    {
-      "name": "trust-loader-config",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js patch\""
-        }
-      ]
-    },
-    {
-      "name": "copy-bundles",
-      "actions": [
-        {
-          "type": "copy",
-          "src": "./opendsu-sdk/psknode/bundles/webshims.js",
-          "target": "./apihub-root/bundles/webshims.js",
-          "options": {
-            "overwrite": true
-          }
+            "name": "apihub-root/demiurge-wallet/loader",
+            "src": "https://github.com/OpenDSU/trust-loader",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd apihub-root/demiurge-wallet/loader && npm install"
+                }
+            ]
         },
         {
-          "type": "copy",
-          "src": "./opendsu-sdk/psknode/bundles/loaderBoot.js",
-          "target": "./apihub-root/bundles/loaderBoot.js",
-          "options": {
-            "overwrite": true
-          }
+            "name": "Demiurge finishing touches...",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./default-loader-config-files",
+                    "target": "./apihub-root/demiurge-wallet/loader",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd demiurge && npm run build"
+                },
+                {
+                    "type": "copySeed",
+                    "src": "./demiurge/seed",
+                    "target": "./apihub-root/demiurge-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "copy",
+                    "src": "./demiurge-default-config",
+                    "target": "./apihub-root/demiurge-wallet/wallet-patch/",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "ssapps-and-wallets-build": [
-    {
-      "name": "webcardinal-wallet-build",
-      "actions": [
+    ],
+    "patch": [
         {
-          "type": "execute",
-          "cmd": "cd webcardinal && npm run build"
+            "name": "trust-loader-config",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./trust-loader-config",
+                    "target": "./apihub-root",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "build": [
-    {
-      "name": "build-all",
-      "actions": [
+    ],
+    "postinstall": [
         {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js ssapps-and-wallets-build\""
+            "name": "trust-loader-config",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js patch\""
+                }
+            ]
         },
         {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postbuild\""
+            "name": "copy-bundles",
+            "actions": [
+                {
+                    "type": "copy",
+                    "src": "./opendsu-sdk/psknode/bundles/webshims.js",
+                    "target": "./apihub-root/bundles/webshims.js",
+                    "options": {
+                        "overwrite": true
+                    }
+                },
+                {
+                    "type": "copy",
+                    "src": "./opendsu-sdk/psknode/bundles/loaderBoot.js",
+                    "target": "./apihub-root/bundles/loaderBoot.js",
+                    "options": {
+                        "overwrite": true
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "postbuild": [
-    {
-      "name": "patching trust loaders configs",
-      "actions": [
+    ],
+    "build": [
         {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postinstall\""
+            "name": "webcardinal-wallet-build",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd webcardinal && npm run build"
+                }
+            ]
+        },
+        {
+            "name": "demiurge-wallet-build",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd demiurge && npm run build",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "copySeed",
+                    "src": "./demiurge/seed",
+                    "target": "./apihub-root/demiurge-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "demo-wallet-build",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd demo-ssapp && npm run build",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "copySeed",
+                    "src": "./demo-ssapp/seed",
+                    "target": "./apihub-root/demo-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "finishing-build",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postbuild\""
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ],
+    "postbuild": [
+        {
+            "name": "patching trust loaders configs",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postinstall\""
+                }
+            ]
+        }
+    ]
 }

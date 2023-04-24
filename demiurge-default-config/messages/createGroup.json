@@ -1,0 +1,20 @@
+[
+  {
+    "messageType": "CreateGroup",
+    "groupName": "Administration Group",
+    "groupTags": "Demiurge",
+    "accessModes": "demiurgeSharedEnclave:admin"
+  },
+  {
+    "messageType": "CreateGroup",
+    "groupName": "Write Group",
+    "groupTags": "DSU_Fabric",
+    "accessModes": "epiEnclave:write"
+  },
+  {
+    "messageType": "CreateGroup",
+    "groupName": "Read Group",
+    "groupTags": "DSU_Fabric",
+    "accessModes": "epiEnclave:read"
+  }
+]
