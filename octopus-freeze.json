@@ -187,8 +187,17 @@
                 },
                 {
                     "type": "copy",
-                    "src": "./demiurge-default-config",
-                    "target": "./apihub-root/demiurge-wallet/wallet-patch/",
+                    "src": "./demiurge-default-config/environment.js",
+                    "target": "./apihub-root/demiurge-wallet/loader/environment.js",
+                    "options": {
+                        "overwrite": true,
+                        "ignoreErrors": true
+                    }
+                },
+                {
+                    "type": "copy",
+                    "src": "./demiurge-default-config/messages",
+                    "target": "./apihub-root/demiurge-wallet/wallet-patch/messages",
                     "options": {
                         "overwrite": true,
                         "ignoreErrors": true
@@ -261,6 +270,42 @@
                 {
                     "type": "execute",
                     "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js postbuild\""
+                }
+            ]
+        },
+        {
+            "name": "demo-wallet_bind_to_demo-ssapp",
+            "src": "",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd demo-ssapp && npm run build"
+                },
+                {
+                    "type": "copy",
+                    "src": "./demo-ssapp/seed",
+                    "target": "./apihub-root/demo-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "demiurge-wallet_bind_to_demiurge",
+            "src": "",
+            "actions": [
+                {
+                    "type": "execute",
+                    "cmd": "cd demiurge && npm run build"
+                },
+                {
+                    "type": "copy",
+                    "src": "./demiurge/seed",
+                    "target": "./apihub-root/demiurge-wallet/wallet-patch/seed",
+                    "options": {
+                        "overwrite": true
+                    }
                 }
             ]
         }
