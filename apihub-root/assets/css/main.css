@@ -16,6 +16,8 @@ body{
     background: no-repeat fixed; 
     background-size: cover;
     height: 100%;
+    font-family: "Lato", "Helvetica Neue", sans-serif;
+    color: white;
 }
 
 .main-container{
@@ -34,7 +36,7 @@ body{
 }
 
 
-.anchor-container > a{
+ a{
     width: 146px;
     height: 146px;
     color:white;
@@ -59,6 +61,7 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 
@@ -70,6 +73,14 @@ body{
     color:rgb(186, 224, 236);
  }
 
+.extra-info{
+    top: 5vh;
+    left: 0;
+    right: 0;
+    position:absolute;
+    text-align: center;
+}
+
 @media screen and (max-width:1200px){
     .main-container{
         grid-template-columns: repeat(var(--elements-per-row-1200px),1fr); 
@@ -80,11 +91,17 @@ body{
     .main-container{
         grid-template-columns: repeat(var(--elements-per-row-900px),1fr); 
     }
+    .extra-info{
+        display: none;
+    }
 }
 
 @media screen and (max-width:600px){
     .main-container{
         grid-template-columns: repeat(var(--elements-per-row-600px),1fr); 
+    }
+    .extra-info{
+        display: none;
     }
 }
 

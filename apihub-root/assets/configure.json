@@ -4,13 +4,13 @@
       "href": "demo-wallet/loader/",
       "background_color": "#8782E1",
       "icon": "fa-solid fa-building-columns fa-4x",
-      "label": "Demo Minimal (npm run install-demo)"
+      "label": "Demo Wallet"
     },
     {
       "href": "demiurge-wallet/loader/",
       "background_color": "#FAA368",
       "icon": "fa-solid fa-atom fa-4x",
-      "label": "Demiurge Wallet (npm run install-demiurge)"
+      "label": "Demiurge Wallet"
     }
   ]
 }
