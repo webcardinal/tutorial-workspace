@@ -77,3 +77,5 @@ To change the port on which the ApiHub listen two files needs to be updated:
 
  - check and update "apihub-root/external-volume/config/apihub.json" change 8080 to PORT_NUMBER
  - edit the "env.json" add the  "BDNS_ROOT_HOSTS": "http://localhost:PORT_NUMBER"
+
+It may happen that some versions of node.js resolve localhost to ipv6 instead of ipv4, to resolve this we need to replace localhost with 127.0.0.1 in the env.json file for the BDNS_ROOT_HOSTS key. Also in the browser you need to use the ip address instead of relying on localhost name.
