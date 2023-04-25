@@ -72,3 +72,10 @@ KeySSI identifier:  BBudGH6ySHG6GUHN8ogNrTWbZHtTCUHnMvP5Un8LrUFrdb2yDx3pbh85gMdL
 Data load succesfully! :) Hello world!
 ....
 ```
+
+To change the port on which the ApiHub listen two files needs to be updated:
+
+"apihub-root/external-volume/config/apihub.json"
+  - change 8080 to PORT_NUMBER
+"env.json"
+  -add the  "BDNS_ROOT_HOSTS": "http://localhost:PORT_NUMBER"
