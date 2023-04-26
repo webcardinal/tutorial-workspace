@@ -41,7 +41,7 @@ $ npm run install-demo
 $ npm run install-demiurge
 ```
 
-A simple and minimal SSApp application is the first thing you can checkout after running the above commands and accessing ```http://localhost:8080/demo-wallet/loader```. 
+A simple and minimal SSApp application is the first thing you can checkout after running the above commands and accessing ```http://127.0.0.1:8080/demo-wallet/loader```. 
 
 ### Adding more SSApps
 
@@ -76,6 +76,6 @@ Data load succesfully! :) Hello world!
 To change the port on which the ApiHub listen two files needs to be updated:
 
  - check and update "apihub-root/external-volume/config/apihub.json" change 8080 to PORT_NUMBER
- - edit the "env.json" add the  "BDNS_ROOT_HOSTS": "http://localhost:PORT_NUMBER"
+ - edit the "env.json" add the  "BDNS_ROOT_HOSTS": "http://127.0.0.1:PORT_NUMBER"
 
-It may happen that some versions of node.js resolve localhost to ipv6 instead of ipv4, to resolve this we need to replace localhost with 127.0.0.1 in the env.json file for the BDNS_ROOT_HOSTS key. Also in the browser you need to use the ip address instead of relying on localhost name.
+It may happen that some versions of node.js resolve localhost to ipv6 instead of ipv4, to resolve this we need to use 127.0.0.1 instead of localhost in the env.json file for the BDNS_ROOT_HOSTS key, and in any other place we may need. Also in the browser you need to use the ip address 127.0.0.1 instead of relying on localhost name.
