@@ -7,10 +7,10 @@
       "label": "Demo Wallet"
     },
     {
-      "href": "demiurge-wallet/loader/",
+      "href": "dsu-explorer",
       "background_color": "#FAA368",
       "icon": "fa-solid fa-atom fa-4x",
-      "label": "Demiurge Wallet"
+      "label": "DSU Explorer"
     }
   ]
 }

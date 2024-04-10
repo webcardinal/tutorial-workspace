@@ -176,6 +176,31 @@
             ]
         }
     ],
+    "install-explorer": [
+        {
+            "name": "apihub-root/dsu-explorer",
+            "src": "https://github.com/OpenDSU/dossier-explorer-wallet-prototype",
+            "actions": [
+                {
+                    "type": "smartClone",
+                    "target": ".",
+                    "collectLog": false
+                },
+                {
+                    "type": "execute",
+                    "cmd": "cd apihub-root/dsu-explorer && npm install"
+                },
+                {
+                    "type": "copy",
+                    "src": "patch/dsu-explorer/",
+                    "target": "apihub-root/dsu-explorer",
+                    "options": {
+                        "overwrite": true
+                    }
+                }
+            ]
+        }
+    ],
     "patch": [
         {
             "name": "trust-loader-config",
