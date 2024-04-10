@@ -1,5 +1,5 @@
 //Load openDSU enviroment
-require("../opendsu-sdk/psknode/bundles/openDSU");
+require("../opendsu-sdk/builds/output/openDSU");
 
 //Load openDSU SDK
 const opendsu = require("opendsu");
@@ -15,6 +15,7 @@ const templateSSI = keyssispace.createTemplateSeedSSI('default');
 
 let data  = {"message": "Hello world!"};
 
+$$.LEGACY_BEHAVIOUR_ENABLED = true;
 
 //Create a DSU
 resolver.createDSU(templateSSI, (err, dsuInstance) =>{
