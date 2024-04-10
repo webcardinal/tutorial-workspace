@@ -10,19 +10,19 @@ The *tutorial-workspace*  bundle contains the following core components required
 - Opendsu sdk
 - Web Server
 - Minimal demo SSApp example
-- Demiurge Wallet
+- DSU Explorer
 
 *Octopus*  is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the [OpenDSU dedicated page](https://opendsu.com/rfc095) in the documentation.
 
 The web server is configured to serve static files from the web-server directory inside the *template-workspace* installation. Besides serving static files, the server exposes the Brick Storage API required to store data to EDFS.
 
-Demiurge Wallet is a standard tool for sharind data (enclaves) and DID between groups in enterprise usecases.
+DSU Explorer is a web tool for interacting with DSUs (basic features that enable DSU structure viewing and managing).
 
 ## Prerequisites
 
 You need the following software installed on your machine in order to continue the this guide
 
-1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version **>=v18.12.1** .
+1. Install or update [Node](https://nodejs.org/en/) (including NPM) to version **>=v18.17.1** .
 2. Install or update [Git](https://git-scm.com/)
 
 ### Installation
@@ -38,14 +38,14 @@ $ npm run build-all
 Additional steps
 ```
 $ npm run install-demo
-$ npm run install-demiurge
+$ npm run install-explorer
 ```
 
 A simple and minimal SSApp application is the first thing you can checkout after running the above commands and accessing ```http://127.0.0.1:8080/demo-wallet/loader```. 
 
 ### Adding more SSApps
 
-OpenDSU.com has a dedicated document on [how to create a ssapp](https://opendsu.com/wallets/how-to/a-ssapp) and that will give you a head start on how to create and add multiple ssapps into your workspace.
+OpenDSU.com has a dedicated document on [how to create a ssapp](https://www.opendsu.org/pages/quickstart/Developers-Tutorial-(RFC-114).html) and that will give you a head start on how to create and add multiple ssapps into your workspace.
 
 ## Hello World! DSU Tutorial
 
