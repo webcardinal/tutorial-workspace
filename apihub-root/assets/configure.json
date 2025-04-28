@@ -1,12 +1,6 @@
 {
   "menu-items": [
     {
-      "href": "demo-wallet/loader/",
-      "background_color": "#8782E1",
-      "icon": "fa-solid fa-building-columns fa-4x",
-      "label": "Demo Wallet"
-    },
-    {
       "href": "dsu-explorer",
       "background_color": "#FAA368",
       "icon": "fa-solid fa-atom fa-4x",
