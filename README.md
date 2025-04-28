@@ -37,7 +37,6 @@ $ npm run build-all
 ```
 Additional steps
 ```
-$ npm run install-demo
 $ npm run install-explorer
 ```
 
